@@ -14,10 +14,12 @@ if __name__ == '__main__':
     consumer = KafkaConsumer(
         PRODUCER_TOPIC,
         bootstrap_servers=['localhost:9091', 'localhost:9092', 'localhost:9093'],
+        api_version=(0,11,5),
         value_deserializer=lambda value: json.loads(value),
     )
     producer = KafkaProducer(
         bootstrap_servers=['localhost:9091', 'localhost:9092', 'localhost:9093'],
+        api_version=(0,11,5),
         value_serializer=lambda value: json.dumps(value).encode(),
     )
     for message in consumer:

@@ -9,7 +9,7 @@ PRODUCER_TOPIC = "my-topic-three"
 
 if __name__ == '__main__':
     producer = KafkaProducer(
-        bootstrap_servers=['localhost:9093', 'localhost:9091', 'localhost:9092' ],
+        bootstrap_servers=['localhost:9091', 'localhost:9092', 'localhost:9093'],
         api_version=(0,11,5),
         # Encode all values as JSON
         value_serializer=lambda value: json.dumps(value).encode(),

@@ -9,9 +9,6 @@ services:
       ZOO_MY_ID: 1
       ZOO_PORT: 2181
       ZOO_SERVERS: localhost:22888:23888;localhost:32888:33888;localhost:42888:43888
-    volumes:
-      - ./data/zookeeper/data:/data
-      - ./data/zookeeper/datalog:/datalog
 
   kafka_broker_1:
     image: confluentinc/cp-kafka:5.3.0
@@ -25,8 +22,6 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
       KAFKA_BROKER_ID: 1
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    volumes:
-      - ./data/kafka_broker_1/data:/var/lib/kafka/data
     depends_on:
       - zookeeper
 
@@ -42,8 +37,6 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
       KAFKA_BROKER_ID: 2
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    volumes:
-      - ./data/kafka_broker_2/data:/var/lib/kafka/data
     depends_on:
       - zookeeper
 
@@ -59,8 +52,6 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
       KAFKA_BROKER_ID: 3
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    volumes:
-      - ./data/kafka_broker_3/data:/var/lib/kafka/data
     depends_on:
       - zookeeper
 
