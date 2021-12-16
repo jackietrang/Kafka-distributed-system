@@ -19,14 +19,21 @@ We will create a Kafka cluster with 1 zookeeper and 3 brokers. In production, ge
 
 5. Check the current controller broker of the cluster through Zookeeper Command Live Interface (Zookeeper CLI)
 Open Zookeeper bash shell:
+
 `docker exec -it kafka-distributed-system-master_zookeeper_1 /bin/bash`
+
 Open the CLI:
+
 `/zookeeper-3.4.9/bin/zkCli.sh`
+
 Get controller information:
+
 `get /controller`
+
 Note that the controller broker ID can be different each time you set up the Kafka cluster. The result should look like below:
 
 6. Create a dummy topic called helloWorldTopic with 1 partition and a replication factor of 1. If the topic is successfully created, you should see the message “Created topic helloWorldTopic.”
+
 `docker exec -it kafka-distributed-system-master_kafka_broker_1_1 kafka-topics — zookeeper zookeeper:2181 — create — topic helloWorldTopic — partitions 1 — replication-factor 1`
 
 7. Go to Kafdrop host http://localhost:9000/ to see information about the Kafka cluster.
