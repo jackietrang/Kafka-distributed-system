@@ -1,4 +1,7 @@
-# Kafka-distributed-system
+# Kafka Distributed System
+
+## Medium article:
+https://medium.com/@jackie.trang18/kafka-for-dummies-and-with-practical-failure-experiments-4a1ac6cd78d0
 
 ## Set Up A Kafka Cluster
 We will create a Kafka cluster with 1 zookeeper and 3 brokers. In production, generally, three zookeepers are needed but to make the experiment simple and easy to understand, one zookeeper is chosen.
